@@ -1,12 +1,12 @@
 [project]
-name = "openstudiolandscapes_dagster_showcase"
+name = "OpenStudioLandscapes-Dagster-Showcase"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.9,<3.13"
+requires-python = ">=3.11,<3.13"
 dependencies = [
-    "dagster",
-    "dagster-cloud",
+    "dagster==1.9.11",
+    "OpenStudioLandscapes-Dagster @ git+https://github.com/michimussato/OpenStudioLandscapes-Dagster@main",
 ]
 
 [project.optional-dependencies]
