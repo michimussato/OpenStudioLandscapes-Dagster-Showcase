@@ -1,6 +1,39 @@
-# openstudiolandscapes_dagster_showcase
+<!-- TOC -->
+* [Openstudiolandscapes-Dagster-Showcase](#openstudiolandscapes-dagster-showcase)
+  * [Getting started](#getting-started)
+  * [Development](#development)
+    * [Adding new Python dependencies](#adding-new-python-dependencies)
+    * [Unit testing](#unit-testing)
+    * [Schedules and sensors](#schedules-and-sensors)
+<!-- TOC -->
+
+---
+
+# Openstudiolandscapes-Dagster-Showcase
 
 This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster project scaffold`](https://docs.dagster.io/getting-started/create-new-project).
+
+This is a dummy showcase Dagster package for the 
+[OpenStudioLandscapes-Dagster](https://github.com/michimussato/OpenStudioLandscapes-Dagster) Feature. 
+It does nothing productive:
+
+```mermaid
+graph TB
+    start([Start])
+    file_found{File Found}
+    create_file[Create File]
+    delete_file[Delete File]
+    
+    start --> file_found 
+    file_found -- Yes --> delete_file
+    file_found -- No --> create_file
+    
+    create_file --> file_found
+    delete_file --> file_found
+```
+
+However, the project implements Dagster sensors just to show that I can do it's
+work autonously - without human interaction.
 
 ## Getting started
 
@@ -39,9 +72,3 @@ pytest openstudiolandscapes_dagster_showcase_tests
 If you want to enable Dagster [Schedules](https://docs.dagster.io/concepts/partitions-schedules-sensors/schedules) or [Sensors](https://docs.dagster.io/concepts/partitions-schedules-sensors/sensors) for your jobs, the [Dagster Daemon](https://docs.dagster.io/deployment/dagster-daemon) process must be running. This is done automatically when you run `dagster dev`.
 
 Once your Dagster Daemon is running, you can start turning on schedules and sensors for your jobs.
-
-## Deploy on Dagster Cloud
-
-The easiest way to deploy your Dagster project is to use Dagster Cloud.
-
-Check out the [Dagster Cloud Documentation](https://docs.dagster.cloud) to learn more.
