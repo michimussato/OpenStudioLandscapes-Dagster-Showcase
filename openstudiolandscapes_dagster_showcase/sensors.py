@@ -1,3 +1,4 @@
+import random
 import tempfile
 
 from dagster import (
@@ -24,7 +25,7 @@ TEMPFILE = pathlib.Path(tempfile.gettempdir(), "i_was_here")
 @sensor(
     job=job_create_file,
     default_status=DefaultSensorStatus.RUNNING,
-    minimum_interval_seconds=15,
+    minimum_interval_seconds=random.randrange(15, 45),
 )
 def sensor_create_file(
         context: SensorEvaluationContext,
@@ -35,7 +36,6 @@ def sensor_create_file(
     context.log.info("Running sensor_create_file...")
 
     if not TEMPFILE.exists():
-
         context.log.info(f"TEMPFILE does not exist. Creating...")
 
         runs_to_request.append(
@@ -53,7 +53,7 @@ def sensor_create_file(
 @sensor(
     job=job_delete_file,
     default_status=DefaultSensorStatus.RUNNING,
-    minimum_interval_seconds=15,
+    minimum_interval_seconds=random.randrange(15, 45),
 )
 def sensor_delete_file(
         context: SensorEvaluationContext,
@@ -64,7 +64,6 @@ def sensor_delete_file(
     context.log.info("Running sensor_delete_file...")
 
     if TEMPFILE.exists():
-
         context.log.info(f"TEMPFILE exists. Deleting...")
 
         runs_to_request.append(
