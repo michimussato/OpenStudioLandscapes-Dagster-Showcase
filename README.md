@@ -15,7 +15,8 @@ This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster proje
 
 Dagster is a powerful automation (orchestration) platform
 and it (if not explicitly disabled) comes with every
-[OpenStudioLandscapes Landscape](https://github.com/michimussato/OpenStudioLandscapes).
+[OpenStudioLandscapes](https://github.com/michimussato/OpenStudioLandscapes) 
+[Landscape](https://github.com/michimussato/OpenStudioLandscapes/blob/main/wiki/terminology.md).
 
 This is a dummy showcase Dagster package for the 
 [OpenStudioLandscapes-Dagster](https://github.com/michimussato/OpenStudioLandscapes-Dagster) Feature. 
