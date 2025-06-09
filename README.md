@@ -13,6 +13,10 @@
 
 This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster project scaffold`](https://docs.dagster.io/getting-started/create-new-project).
 
+Dagster is a powerful automation (orchestration) platform
+and it (if not explicitly disabled) comes with every
+[OpenStudioLandscapes Landscape](https://github.com/michimussato/OpenStudioLandscapes).
+
 This is a dummy showcase Dagster package for the 
 [OpenStudioLandscapes-Dagster](https://github.com/michimussato/OpenStudioLandscapes-Dagster) Feature. 
 It does nothing productive:
