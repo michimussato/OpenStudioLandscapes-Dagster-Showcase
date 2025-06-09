@@ -24,7 +24,7 @@ TEMPFILE = pathlib.Path(tempfile.gettempdir(), "i_was_here")
 
 @sensor(
     job=job_create_file,
-    default_status=DefaultSensorStatus.RUNNING,
+    default_status=DefaultSensorStatus.STOPPED,
     minimum_interval_seconds=random.randrange(15, 45),
 )
 def sensor_create_file(
@@ -52,7 +52,7 @@ def sensor_create_file(
 
 @sensor(
     job=job_delete_file,
-    default_status=DefaultSensorStatus.RUNNING,
+    default_status=DefaultSensorStatus.STOPPED,
     minimum_interval_seconds=random.randrange(15, 45),
 )
 def sensor_delete_file(
