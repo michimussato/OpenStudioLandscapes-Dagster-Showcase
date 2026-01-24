@@ -6,6 +6,7 @@ from dagster import (
     asset,
     AssetIn,
     AssetExecutionContext,
+    AssetKey,
 )
 
 
@@ -36,7 +37,9 @@ def temp_dir(
 @asset(
     **ASSET_HEADER,
     ins={
-        "temp_dir": AssetIn(),
+        "temp_dir": AssetIn(
+            AssetKey([*ASSET_HEADER["key_prefix"], "temp_dir"]),
+        ),
     }
 )
 def create_file(
@@ -60,7 +63,9 @@ def create_file(
 @asset(
     **ASSET_HEADER,
     ins={
-        "temp_dir": AssetIn(),
+        "temp_dir": AssetIn(
+            AssetKey([*ASSET_HEADER["key_prefix"], "temp_dir"]),
+        ),
     }
 )
 def delete_file(
