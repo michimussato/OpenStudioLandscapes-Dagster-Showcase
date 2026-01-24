@@ -1,27 +1,68 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools-scm>=9",
+    "setuptools>=80",
+]
+
 [project]
+authors = [
+    { email = "michimussato@gmail.com", name = "Michael Mussato" },
+]
+maintainers = [
+    { email = "michimussato@gmail.com", name = "Michael Mussato" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: OpenStudioLandscapes",
+    "Programming Language :: Python",
+]
 name = "OpenStudioLandscapes-Dagster-Showcase"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+dynamic = [
+    "version",
+]
+description = "This is a demo package for OpenStudioLandscapes-Dagster to showcase Dagster functionality."
+license-files = [
+    "LICENSE.txt",
+]
 requires-python = ">=3.11,<3.13"
 dependencies = [
     "dagster==1.9.11",
-    "OpenStudioLandscapes-Dagster @ git+https://github.com/michimussato/OpenStudioLandscapes-Dagster@main",
+    "dagster-webserver",
+    # "OpenStudioLandscapes-Dagster @ git+https://github.com/michimussato/OpenStudioLandscapes-Dagster@main",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "dagster-webserver", 
-    "pytest",
+optional-base = [
+    "OpenStudioLandscapes-Dagster[optional-base] @ git+https://github.com/michimussato/OpenStudioLandscapes-Dagster.git",
 ]
+# dev = [
+#     # "dagster-webserver",
+#     "pytest",
+# ]
 
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+[project.readme]
+content-type = "text/markdown; charset=UTF-8"
+file = "README.md"
+
+[project.urls]
+Homepage = "https://github.com/michimussato/OpenStudioLandscapes-Dagster-Showcase"
 
 [tool.dagster]
 module_name = "openstudiolandscapes_dagster_showcase.definitions"
 project_name = "openstudiolandscapes_dagster_showcase"
 
+[tool.setuptools]
+include-package-data = true
+platforms = [
+    "Linux",
+]
+
 [tool.setuptools.packages.find]
-exclude=["openstudiolandscapes_dagster_showcase_tests"]
+exclude=[
+    "openstudiolandscapes_dagster_showcase_tests"
+]
+namespaces = true
+where = [
+    "src",
+]
