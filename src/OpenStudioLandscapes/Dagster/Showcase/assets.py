@@ -33,7 +33,7 @@ ASSET_HEADER = {
 )
 def temp_dir(
         context: AssetExecutionContext,
-) -> Generator[Output[str] | AssetMaterialization | Any, Any, None]:
+) -> Generator[Output[pathlib.Path] | AssetMaterialization | Any, Any, None]:
     temp_dir_ = tempfile.gettempdir()
     context.log.info(f"Temp dir: {temp_dir_}")
 
