@@ -66,18 +66,3 @@ namespaces = true
 where = [
     "src",
 ]
-
-
-
-
-#[tool.setuptools]
-#include-package-data = true
-#packages = [
-#    "OpenStudioLandscapes.Dagster.Showcase",
-#]
-#platforms = [
-#    "Linux",
-#]
-#
-#[tool.setuptools.package-dir]
-#"" = "src"
