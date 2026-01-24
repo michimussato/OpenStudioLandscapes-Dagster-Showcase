@@ -45,7 +45,7 @@ work autonously - without human interaction.
 First, install your Dagster code location as a Python package. By using the --editable flag, pip will install your Python package in ["editable mode"](https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs) so that as you develop, local code changes will automatically apply.
 
 ```bash
-pip install -e ".[dev]"
+pip install -e .
 ```
 
 Then, start the Dagster UI web server:
@@ -56,7 +56,7 @@ dagster dev
 
 Open http://localhost:3000 with your browser to see the project.
 
-You can start writing assets in `openstudiolandscapes_dagster_showcase/assets.py`. The assets are automatically loaded into the Dagster code location as you define them.
+You can start writing assets in `src/OpenStudioLandscapes/Dagster/Showcase/assets.py`. The assets are automatically loaded into the Dagster code location as you define them.
 
 ## Development
 

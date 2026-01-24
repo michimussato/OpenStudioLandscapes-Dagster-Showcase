@@ -29,17 +29,12 @@ requires-python = ">=3.11,<3.13"
 dependencies = [
     "dagster==1.9.11",
     "dagster-webserver",
-    # "OpenStudioLandscapes-Dagster @ git+https://github.com/michimussato/OpenStudioLandscapes-Dagster@main",
 ]
 
 [project.optional-dependencies]
 optional-base = [
     "OpenStudioLandscapes-Dagster[optional-base] @ git+https://github.com/michimussato/OpenStudioLandscapes-Dagster.git",
 ]
-# dev = [
-#     # "dagster-webserver",
-#     "pytest",
-# ]
 
 [project.readme]
 content-type = "text/markdown; charset=UTF-8"
@@ -62,7 +57,10 @@ platforms = [
 exclude = [
     "tests",
 ]
+include = [
+    "OpenStudioLandscapes.Dagster.Showcase"
+]
 namespaces = true
 where = [
-    "src",
+    "src/OpenStudioLandscapes/Dagster/",
 ]
