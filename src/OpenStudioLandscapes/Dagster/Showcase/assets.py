@@ -63,12 +63,10 @@ def create_file(
     i_was_here = pathlib.Path(temp_dir, "i_was_here")
 
     if i_was_here.exists():
-        context.log.error(f"File {i_was_here.as_posix()} already exists")
-        return i_was_here
-    with open(i_was_here, encoding="utf-8", mode="w") as f:
-        f.write("i_was_here")
-
-    context.log.info(f"File {i_was_here.as_posix()} created.")
+        context.log.critical(f"File {i_was_here.as_posix()} already exists")
+    else:
+        i_was_here.write_text("i_was_here", encoding="utf-8")
+        context.log.info(f"File {i_was_here.as_posix()} created.")
 
     yield Output(i_was_here)
 
@@ -97,9 +95,8 @@ def delete_file(
 
     try:
         os.remove(i_was_here.as_posix())
+        context.log.info(f"File {i_was_here.as_posix()} deleted.")
     except FileNotFoundError as e:
         context.log.exception(f"File {i_was_here.as_posix()} not found.")
-
-    context.log.info(f"File {i_was_here.as_posix()} deleted.")
 
     return None
