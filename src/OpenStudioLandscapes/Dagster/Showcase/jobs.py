@@ -1,12 +1,22 @@
 from dagster import (
     AssetSelection,
     define_asset_job,
+    AssetKey,
 )
 
 
+from OpenStudioLandscapes.Dagster.Showcase.assets import ASSET_HEADER
+
+
 # Asset Selections
-asset_selection_create_file = AssetSelection.assets("temp_dir", "create_file")
-asset_selection_delete_file = AssetSelection.assets("temp_dir", "delete_file")
+asset_selection_create_file = AssetSelection.assets(
+    AssetKey([*ASSET_HEADER["key_prefix"], "temp_dir"]),
+    AssetKey([*ASSET_HEADER["key_prefix"], "create_file"]),
+)
+asset_selection_delete_file = AssetSelection.assets(
+    AssetKey([*ASSET_HEADER["key_prefix"], "temp_dir"]),
+    AssetKey([*ASSET_HEADER["key_prefix"], "create_file"]),
+)
 
 
 job_create_file = define_asset_job(

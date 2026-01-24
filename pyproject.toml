@@ -45,6 +45,7 @@ Homepage = "https://github.com/michimussato/OpenStudioLandscapes-Dagster-Showcas
 
 [tool.dagster]
 module_name = "OpenStudioLandscapes.Dagster.Showcase.definitions"
+working_directory = "src"
 project_name = "OpenStudioLandscapes-Dagster-Showcase"
 
 #[tool.setuptools]

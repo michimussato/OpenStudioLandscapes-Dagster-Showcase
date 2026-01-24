@@ -27,9 +27,11 @@ try:
         if i.name == "OpenStudioLandscapes":
             break
 
-    LOGGER.error(f"{namespaces = }")
+    LOGGER.info(f"{namespaces = }")
 
     dist: Distribution = metadata.distribution(".".join(namespaces))
+
+    LOGGER.info(f"{dist.name = }")
 
     __version__: str = version(dist.name)
 except PackageNotFoundError:  # pragma: no cover

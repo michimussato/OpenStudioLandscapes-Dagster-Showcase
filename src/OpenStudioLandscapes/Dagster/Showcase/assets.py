@@ -1,12 +1,17 @@
 import os
 import pathlib
 import tempfile
+from pathlib import Path
+from typing import Any, Generator
 
 from dagster import (
     asset,
     AssetIn,
     AssetExecutionContext,
     AssetKey,
+    Output,
+    AssetMaterialization,
+    MetadataValue
 )
 
 
@@ -28,10 +33,18 @@ ASSET_HEADER = {
 )
 def temp_dir(
         context: AssetExecutionContext,
-) -> pathlib.Path:
+) -> Generator[Output[str] | AssetMaterialization | Any, Any, None]:
     temp_dir_ = tempfile.gettempdir()
     context.log.info(f"Temp dir: {temp_dir_}")
-    return pathlib.Path(temp_dir_)
+
+    yield Output(temp_dir_)
+
+    yield AssetMaterialization(
+        asset_key=context.asset_key,
+        metadata={
+            "__".join(context.asset_key.path): MetadataValue.path(temp_dir_),
+        },
+    )
 
 
 @asset(
@@ -45,7 +58,7 @@ def temp_dir(
 def create_file(
         context: AssetExecutionContext,
         temp_dir: pathlib.Path,
-) -> pathlib.Path:
+) -> Generator[Output[Path] | AssetMaterialization | Any, Any, Path | None]:
 
     i_was_here = pathlib.Path(temp_dir, "i_was_here")
 
@@ -57,7 +70,14 @@ def create_file(
 
     context.log.info(f"File {i_was_here.as_posix()} created.")
 
-    return i_was_here
+    yield Output(i_was_here)
+
+    yield AssetMaterialization(
+        asset_key=context.asset_key,
+        metadata={
+            "__".join(context.asset_key.path): MetadataValue.path(i_was_here),
+        },
+    )
 
 
 @asset(
