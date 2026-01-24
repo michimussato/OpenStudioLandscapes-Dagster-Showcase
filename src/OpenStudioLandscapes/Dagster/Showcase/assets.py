@@ -9,7 +9,22 @@ from dagster import (
 )
 
 
-@asset
+from OpenStudioLandscapes.Dagster.Showcase import dist
+
+# Todo
+#  - [ ] fix this naive replacement logic
+GROUP = dist.name.replace("-", "_")
+KEY = [GROUP]
+
+ASSET_HEADER = {
+    "group_name": GROUP,
+    "key_prefix": KEY,
+}
+
+
+@asset(
+    **ASSET_HEADER,
+)
 def temp_dir(
         context: AssetExecutionContext,
 ) -> pathlib.Path:
@@ -19,6 +34,7 @@ def temp_dir(
 
 
 @asset(
+    **ASSET_HEADER,
     ins={
         "temp_dir": AssetIn(),
     }
@@ -42,6 +58,7 @@ def create_file(
 
 
 @asset(
+    **ASSET_HEADER,
     ins={
         "temp_dir": AssetIn(),
     }
