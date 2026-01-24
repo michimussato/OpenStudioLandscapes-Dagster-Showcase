@@ -62,7 +62,7 @@ platforms = [
 exclude=[
     "openstudiolandscapes_dagster_showcase_tests"
 ]
-namespaces = true
+namespaces = false
 where = [
-    "src",
+    "openstudiolandscapes_dagster_showcase",
 ]
