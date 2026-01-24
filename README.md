@@ -1,5 +1,6 @@
 <!-- TOC -->
 * [Openstudiolandscapes-Dagster-Showcase](#openstudiolandscapes-dagster-showcase)
+  * [Install into OpenStudioLandscapes-Dagster](#install-into-openstudiolandscapes-dagster)
   * [Getting started](#getting-started)
   * [Development](#development)
     * [Adding new Python dependencies](#adding-new-python-dependencies)
@@ -10,6 +11,28 @@
 ---
 
 # Openstudiolandscapes-Dagster-Showcase
+
+## Install into OpenStudioLandscapes-Dagster
+
+Add the following code snippet to the
+`dagster_code_locations` section:
+
+```yaml
+dagster_code_locations:
+  load_from:
+  # [...]
+  - python_module:
+      location_name: OpenStudioLandscapes-Dagster-Showcase Package Code Location
+      module_name: OpenStudioLandscapes.Dagster.Showcase.definitions
+      working_directory: src
+      pip_path: OpenStudioLandscapes-Dagster-Showcase @ git+https://github.com/michimussato/OpenStudioLandscapes-Dagster-Showcase.git@main
+  # [...]
+```
+
+
+
+
+
 
 This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster project scaffold`](https://docs.dagster.io/getting-started/create-new-project).
 
