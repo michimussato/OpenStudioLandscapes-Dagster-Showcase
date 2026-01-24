@@ -15,7 +15,7 @@ asset_selection_create_file = AssetSelection.assets(
 )
 asset_selection_delete_file = AssetSelection.assets(
     AssetKey([*ASSET_HEADER["key_prefix"], "temp_dir"]),
-    AssetKey([*ASSET_HEADER["key_prefix"], "create_file"]),
+    AssetKey([*ASSET_HEADER["key_prefix"], "delete_file"]),
 )
 
 

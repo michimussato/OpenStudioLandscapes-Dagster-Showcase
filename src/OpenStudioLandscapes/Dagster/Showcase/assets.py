@@ -95,7 +95,7 @@ def delete_file(
     i_was_here = temp_dir.joinpath("i_was_here")
 
     try:
-        os.remove(i_was_here.as_posix())
+        os.remove(i_was_here)
         context.log.info(f"File {i_was_here.as_posix()} deleted.")
     except FileNotFoundError as e:
         context.log.exception(f"File {i_was_here.as_posix()} not found.")
