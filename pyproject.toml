@@ -47,20 +47,32 @@ Homepage = "https://github.com/michimussato/OpenStudioLandscapes-Dagster-Showcas
 module_name = "OpenStudioLandscapes.Dagster.Showcase.definitions"
 project_name = "OpenStudioLandscapes-Dagster-Showcase"
 
+#[tool.setuptools]
+#include-package-data = true
+#platforms = [
+#    "Linux",
+#]
+
+#[tool.setuptools.packages.find]
+#exclude = [
+#    "tests",
+#]
+#include = [
+#    "OpenStudioLandscapes.Dagster.Showcase"
+#]
+#namespaces = true
+#where = [
+#    "src/",
+#]
+
 [tool.setuptools]
 include-package-data = true
+packages = [
+    "OpenStudioLandscapes.Dagster.Showcase",
+]
 platforms = [
     "Linux",
 ]
 
-[tool.setuptools.packages.find]
-exclude = [
-    "tests",
-]
-include = [
-    "OpenStudioLandscapes.Dagster.Showcase"
-]
-namespaces = true
-where = [
-    "src/",
-]
+[tool.setuptools.package-dir]
+"" = "src"
