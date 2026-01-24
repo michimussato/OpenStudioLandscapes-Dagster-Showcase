@@ -34,8 +34,9 @@ ASSET_HEADER = {
 def temp_dir(
         context: AssetExecutionContext,
 ) -> Generator[Output[pathlib.Path] | AssetMaterialization | Any, Any, None]:
-    temp_dir_ = tempfile.gettempdir()
-    context.log.info(f"Temp dir: {temp_dir_}")
+
+    temp_dir_ = pathlib.Path(tempfile.gettempdir())
+    context.log.info(f"Temp dir: {temp_dir_.as_posix()}")
 
     yield Output(temp_dir_)
 
@@ -60,7 +61,7 @@ def create_file(
         temp_dir: pathlib.Path,
 ) -> Generator[Output[Path] | AssetMaterialization | Any, Any, Path | None]:
 
-    i_was_here = pathlib.Path(temp_dir, "i_was_here")
+    i_was_here = temp_dir.joinpath("i_was_here")
 
     if i_was_here.exists():
         context.log.critical(f"File {i_was_here.as_posix()} already exists")
@@ -91,7 +92,7 @@ def delete_file(
         temp_dir: pathlib.Path,
 ) -> None:
 
-    i_was_here = pathlib.Path(temp_dir, "i_was_here")
+    i_was_here = temp_dir.joinpath("i_was_here")
 
     try:
         os.remove(i_was_here.as_posix())
