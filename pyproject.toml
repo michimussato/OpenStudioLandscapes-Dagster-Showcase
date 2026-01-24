@@ -49,20 +49,17 @@ file = "README.md"
 Homepage = "https://github.com/michimussato/OpenStudioLandscapes-Dagster-Showcase"
 
 [tool.dagster]
-module_name = "openstudiolandscapes_dagster_showcase.definitions"
-project_name = "openstudiolandscapes_dagster_showcase"
+module_name = "OpenStudioLandscapes-Dagster-Showcase.definitions"
+project_name = "OpenStudioLandscapes-Dagster-Showcase"
 
 [tool.setuptools]
 include-package-data = true
+packages = [
+    "OpenStudioLandscapes.Dagster.Showcase",
+]
 platforms = [
     "Linux",
 ]
 
-[tool.setuptools.packages.find]
-exclude=[
-    "openstudiolandscapes_dagster_showcase_tests"
-]
-namespaces = false
-where = [
-    "openstudiolandscapes_dagster_showcase",
-]
+[tool.setuptools.package-dir]
+"" = "src"

@@ -1,7 +1,7 @@
 from dagster import Definitions, load_assets_from_modules
 
-from openstudiolandscapes_dagster_showcase import assets  # noqa: TID252
-from openstudiolandscapes_dagster_showcase.sensors import sensor_create_file, sensor_delete_file
+from src.OpenStudioLandscapes.Dagster.Showcase import assets  # noqa: TID252
+from src.OpenStudioLandscapes.Dagster.Showcase.sensors import sensor_create_file, sensor_delete_file
 
 all_assets = load_assets_from_modules([assets])
 
