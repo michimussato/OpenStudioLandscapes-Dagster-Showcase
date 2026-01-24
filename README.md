@@ -26,6 +26,8 @@ dagster_code_locations:
       module_name: OpenStudioLandscapes.Dagster.Showcase.definitions
       working_directory: src
       pip_path: OpenStudioLandscapes-Dagster-Showcase @ git+https://github.com/michimussato/OpenStudioLandscapes-Dagster-Showcase.git@main
+      volume_mounts: []
+      environment: {}
   # [...]
 ```
 
