@@ -45,16 +45,17 @@ It does nothing productive:
 graph TB
     start([Start])
     file_found{File Found}
-    create_file[Create File]
-    delete_file[Delete File]
+    create_file["Create File"]
+    delete_file["Delete File"]
     
     start --> file_found 
     file_found -- Yes --> delete_file
     file_found -- No --> create_file
     
-    create_file --> file_found
-    delete_file --> file_found
+    create_file -- job_create_file --> file_found
+    delete_file -- job_delete_file --> file_found
 ```
 
-However, the project implements Dagster sensors just to show that I can do it's
-work autonously - without human interaction.
+However, the project implements Dagster sensors which execute Dagster
+jobs based on certain circumstances. OpenStudioLandscapes-Dagster-Showcase
+demonstrates Dagsters power by running jobs autonomously without human interaction.
