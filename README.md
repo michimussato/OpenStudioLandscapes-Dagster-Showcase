@@ -20,7 +20,7 @@
 > `config.yml`.
 
 The following code snippet is added to the
-`dagster_code_locations` section in the `config.yml` file 
+`dagster_code_locations` section in the `config.yml` file of
 [OpenStudioLandscapes-Dagster](https://github.com/michimussato/OpenStudioLandscapes-Dagster#default-configuration):
 
 ```yaml
