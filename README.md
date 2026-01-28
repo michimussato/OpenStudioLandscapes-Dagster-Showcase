@@ -14,8 +14,14 @@
 
 ## Install into OpenStudioLandscapes-Dagster
 
-Add the following code snippet to the
-`dagster_code_locations` section:
+> [!TIP]
+> 
+> This package is already integrated into the default
+> `config.yml`.
+
+The following code snippet is added to the
+`dagster_code_locations` section in the `config.yml` file 
+[OpenStudioLandscapes-Dagster](https://github.com/michimussato/OpenStudioLandscapes-Dagster#default-configuration):
 
 ```yaml
 dagster_code_locations:
